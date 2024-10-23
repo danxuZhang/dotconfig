@@ -89,7 +89,7 @@ crust = "#11111b"
     template = '{{ .FormattedMs }}'
 
     [blocks.segments.properties]
-      threshold = 5000
+      threshold = 3000
 
 
 [[blocks]]
@@ -107,6 +107,6 @@ crust = "#11111b"
     template = 'λ'
 
 [secondary_prompt]
-  foreground = 'magenta'
+  foreground = 'p:text'
   background = 'transparent'
   template = '> '
