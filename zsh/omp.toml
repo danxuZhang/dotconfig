@@ -35,7 +35,17 @@ crust = "#11111b"
   type = 'prompt'
   alignment = 'left'
   newline = true
-    
+  
+  [[blocks.segments]]
+    type = 'python'
+    foreground = 'p:text'
+    template = '{{ if .Venv }}[{{ .Venv }}]{{ end }}'
+    [blocks.segments.properties]
+        home_enabled = true
+  [[blocks.segments]]
+    type = 'os'
+    background = 'transparent'
+    template = '{{.Icon}} '
   [[blocks.segments]]
     type = 'text'
     foreground = 'p:lavender'
@@ -62,7 +72,6 @@ crust = "#11111b"
     foreground = "p:mauve"
     background = 'transparent'
     template = "{{ .Path }}"
-    
     [blocks.segments.properties]
         style = 'full'
   [[blocks.segments]]
@@ -71,7 +80,6 @@ crust = "#11111b"
     foreground = 'p:peach'
     background = 'transparent'
     template = ' {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} {{ if gt .Behind 0 }}↓{{ end }}{{ if gt .Ahead 0 }}↑{{ end }}</>'
-    
     [blocks.segments.properties]
       branch_icon = ''
       commit_icon = '@'
@@ -87,16 +95,12 @@ crust = "#11111b"
     foreground = 'p:yellow'
     background = 'transparent'
     template = '{{ .FormattedMs }}'
-
     [blocks.segments.properties]
       threshold = 3000
-
-
 [[blocks]]
   type = 'prompt'
   alignment = 'left'
   newline = true
-
   [[blocks.segments]]
     type = 'text'
     background = 'transparent'
@@ -105,8 +109,8 @@ crust = "#11111b"
         "{{if eq .Code 0}}p:green{{end}}"
     ]
     template = 'λ'
-
 [secondary_prompt]
   foreground = 'p:text'
   background = 'transparent'
   template = '> '
+
